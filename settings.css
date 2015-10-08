@@ -1,0 +1,31 @@
+
+body {
+	  padding-top: 20px;
+	  font-size: 16px;
+}
+
+.error-msg{
+	 font-size: 24px;
+	 color:red;
+ }
+.saving-div{
+	 margin-bottom:60px;
+	 font-size: 18px;
+ }
+ .info-div{
+	 margin-top:10px;
+	 margin-bottom:10px;
+ }
+.slider-value{
+	  border:0; 
+	  color:#0B610B; 
+	  font-weight:bold;
+  }
+.main-title{
+	color:#380B61;
+}
+.sub-title{
+	color:#045FB4;
+}
+
+

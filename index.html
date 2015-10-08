@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Heat Settings Schedule</title>
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+   	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	  
+	<script src="HeatSettings.js"></script>
+	<link rel="stylesheet" href="settings.css">
+	<link rel="stylesheet" href="HeatSettings.less">
+	<link rel="stylesheet" href="HeatSettings.css">
+
+  </head>
+  <body onload="load_slider();heat_settings_main();">
+	  <div class="container">
+		  <div class="col-md-12 colored-div">
+			  <h2 class="text-center main-title">Heat Settings for Your Rooms</h2>
+			  <div class="col-md-12 info-div">
+				  <p>This is a very basic application for one person living in a house with four separate rooms (bedroom, bathroom, kitchen, livingroom) for winter. This is only made for weekdays when he/she wakes up, goes to work, return back, have dinner, and then sleep.</p>
+				  <p>Several assumptions has been made regarding the room where he/she performs certain daily tasks such as dinner in the kitchen, and not in the living room</p>
+				  <p>The day starts at 0.00 and ends at 23:00. 6.00 represents time between 6:00 - 6.59.</p>
+				  <p>The temperature settings are 0 for heating is OFF, 100 for heating is ON (the person preferred temperature), and 50 for bearable temperate for few minutes (going quickly to bathroom during night)  
+The person has to sleep on or before 23:00.</p>
+		      </div>
+			  
+	  	</div>
+		 <div class="col-md-12">
+			 <h3 class="sub-title text-center">How it works?</h3>
+			 <p>Please select your daily routine below. Then check out the savings to your heating.The saving result for each room denotes the percentage of hours in a day when the heating was turned OFF. 100 means that heating was turned OFF during the entire day.</p>
+			 <h4 class="sub-title">Change sliders to adjust time.</h4>
+				<div class="col-md-8 saving-div">
+				  <div class="col-md-12">
+					<div class="col-md-12 verticalspace">
+						<p class="error-msg" id="error_msg"></p>
+		 			</div>
+					<p class="verticalspace">
+					   <label for="wakeuptime" class="text-center">Wakeup time:</label>
+					   <input type="text" id="wakeuptime" class="slider-value" readonly onchange="heat_settings_main();">
+					</p>
+					<div id="sliderwakeup"></div>
+
+					 <p class="verticalspace">
+						 <label for="officetime" class="text-center">Office  time:</label>
+						 <input type="text" id="officetime" readonly class="slider-value" onchange="heat_settings_main();">
+					 </p>
+					 <div id="slideroffice"></div>
+					 <p class="verticalspace">
+						 <label for="backhometime" class="text-center">Backhome time:</label>
+						 <input type="text" id="backhometime" readonly class="slider-value" onchange="heat_settings_main();">
+					</p>
+					<div id="sliderbackhome"></div>
+					<p class="verticalspace">
+						<label for="dinnertime" class="text-center">Dinner time:</label>
+						<input type="text" id="dinnertime" readonly class="slider-value" onchange="heat_settings_main();">
+					</p>
+					<div id="sliderdinner"></div>
+					<p class="verticalspace">
+						<label for="bedtime" class="text-center">Bed time:</label>
+						<input type="text" id="bedtime" class="slider-value" readonly  onchange="heat_settings_main();">
+					</p>
+					<div id="sliderbed"></div>
+					</div>
+				</div>
+				<div class="col-md-4 saving-div">
+					<h4 class="verticalspace text-center">Saving Results</h4>
+					<label class="col-md-8 verticalspace">Bedroom</label> 
+					<p class="col-md-4 verticalspace slider-value" id="savingbed"></p>
+					<label class="col-md-8">Bathroom</label> 
+					<p class="col-md-4 slider-value" id="savingbath"></p>
+					<label class="col-md-8">Kitchen</label> 
+					<p class="col-md-4 slider-value" id="savingkitchen"></p>
+					<label class="col-md-8">Living Room</label> 
+					<p class="col-md-4 slider-value" id="savingliving"></p>
+
+					<label class="col-md-8">Average Saving</label>
+					<p class="col-md-4 slider-value" id="savingaverage"></p> 
+								
+				</div>
+		</div>
+      <div class="container verticalspace" id="tempchart"  style ="min-width:380px; height:500px; margin: 0 auto;"></div>
+    </div>
+  </body>
+</html>

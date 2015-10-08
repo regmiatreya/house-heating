@@ -1,0 +1,39 @@
+/* Mixin */
+.gradient (@origin: left, @start: #ffffff, @stop: #ffffff) {
+	background-color: @start;
+	background-image: -webkit-linear-gradient(@origin, @start, @stop);
+	background-image: -moz-linear-gradient(@origin, @start, @stop);
+	background-image: -o-linear-gradient(@origin, @start, @stop);
+	background-image: -ms-linear-gradient(@origin, @start, @stop);
+	background-image: linear-gradient(@origin, @start, @stop);
+}
+.font-size(@font-size: 16){
+    @pxFontValue: (@font-size / 10);
+    @pxLineValue: (@font-size / 10 * 1.5);
+    font-size: @font-size * 1px;
+    line-height: @font-size * 1.5 * 1px;
+    font-size: ~"@{pxFontValue}rem";
+    line-height: ~"@{pxLineValue}rem";
+}
+.verticalspace(@margin-top:20px; @margin-bottom:20px){
+	margin-top: @margin-top;
+	margin-bottom: @margin-bottom;
+	
+}
+/* Usages */
+.colored-div {
+	.gradient(left, #ffffff, #ffffff);
+	.verticalspace(10px,20px);
+} 
+h2 { 
+	.font-size(18px); 
+	.verticalspace(20px,15px);
+}
+ .info-div{
+	.verticalspace(10px,10px);
+ }
+.saving-div{
+	 .verticalspace(0px,60px);
+	 .font-size(16px);
+ }
+
